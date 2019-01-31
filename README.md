@@ -29,7 +29,12 @@ Please cite our paper if you find it useful for your research.
 ![](figure/iou_comparison.png)
 
 ## Installation
-* Install PyTorch from http://pytorch.org with Python2
+* Install PyTorch from http://pytorch.org with Python 2 and CUDA 8.0
+
+* **NEW** PyTorch 0.4 with Python 3 and CUDA 8.0
+  - Usage: replace the training and evaluation codes with the ones in the `pytorch_0.4` folder
+  - Update: tensorboard is provided by adding `--tensorboard` in the command
+  - Note: the single-level model works as expected, while the multi-level model requires smaller weights, e.g., `--lambda-adv-target1 0.00005 --lambda-adv-target2 0.0005`. We will investigate this issue soon.
 
 * Clone this repo
 ```
@@ -79,6 +84,7 @@ python train_gta2cityscapes_multi.py --snapshot-dir ./snapshots/GTA2Cityscapes_s
 ```
 
 ## Related Implementation and Dataset
+* Y.-H. Tsai, K. Sohn, S. Schulter, and M. Chandraker. Domain Adaptation for Structured Output via Discriminative Patch Representations. In ArXiv, 2019. [[paper]](https://arxiv.org/abs/1901.05427)
 * W.-C. Hung, Y.-H Tsai, Y.-T. Liou, Y.-Y. Lin, and M.-H. Yang. Adversarial Learning for Semi-supervised Semantic Segmentation. In ArXiv, 2018. [[paper]](https://arxiv.org/abs/1802.07934) [[code]](https://github.com/hfslyc/AdvSemiSeg)
 * Y.-H. Chen, W.-Y. Chen, Y.-T. Chen, B.-C. Tsai, Y.-C. Frank Wang, and M. Sun. No More Discrimination: Cross City Adaptation of Road Scene Segmenters. In ICCV 2017. [[paper]](https://arxiv.org/abs/1704.08509) [[project]](https://yihsinchen.github.io/segmentation_adaptation/)
 
@@ -87,6 +93,8 @@ This code is heavily borrowed from [Pytorch-Deeplab](https://github.com/speeding
 
 ## Note
 The model and code are available for non-commercial research purposes only.
+* 01/2019: upate the training code for PyTorch 0.4
+* 07/23/2018: update evaluation code for PyTorch 0.4
 * 06/04/2018: update pretrained VGG-16 model 
 * 02/2018: code released
 
